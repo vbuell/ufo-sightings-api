@@ -1,15 +1,14 @@
 package info.adavis.dao
 
-import org.slf4j.Logger
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
 
 abstract class CSVDataImporter {
 
-    abstract fun import(log: Logger)
+    abstract fun import()
 
-    fun importFromCsv(inputStream: InputStream, consumer: (Array<String>)-> Unit) {
+    fun readFromCSV(inputStream: InputStream, consumer: (Array<String>) -> Unit) {
         val bufferedReader = BufferedReader(InputStreamReader(inputStream))
 
         try {
@@ -22,5 +21,4 @@ abstract class CSVDataImporter {
             throw RuntimeException("Failed to perform import", e)
         }
     }
-
 }
