@@ -25,7 +25,7 @@ class AppSchema(private val storage: UFOSightingStorage) {
         query("sightings") {
             description = "Returns a subset of the UFO Sighting records"
 
-            resolver { size: Int? -> storage.getAll(size?.toLong() ?: 10) }.withArgs {
+            resolver { size: Long -> storage.getAll(size) }.withArgs {
                 arg<Long> { name = "size"; defaultValue = 10; description = "The number of records to return" }
             }
         }
