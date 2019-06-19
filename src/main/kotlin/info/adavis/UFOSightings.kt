@@ -1,6 +1,7 @@
 package info.adavis
 
 import com.google.gson.Gson
+import info.adavis.di.mainModule
 import info.adavis.graphql.AppSchema
 import io.ktor.application.*
 import io.ktor.features.*
@@ -15,9 +16,12 @@ import io.ktor.locations.Locations
 import io.ktor.response.respond
 import io.ktor.routing.routing
 import org.koin.ktor.ext.inject
+import org.koin.standalone.StandAloneContext
 
 @Suppress("unused")
 fun Application.UFOSightings() {
+    StandAloneContext.startKoin(listOf(mainModule))
+
     install(DefaultHeaders)
     install(CallLogging)
     install(Locations)

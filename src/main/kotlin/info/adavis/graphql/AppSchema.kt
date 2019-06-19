@@ -1,6 +1,6 @@
 package info.adavis.graphql
 
-import com.github.pgutkowski.kgraphql.KGraphQL
+import com.apurebase.kgraphql.KGraphQL
 import info.adavis.NotFoundException
 import info.adavis.dao.UFOSightingStorage
 import info.adavis.model.CountrySightings
@@ -45,13 +45,13 @@ class AppSchema(private val storage: UFOSightingStorage) {
         query("topSightings") {
             description = "Returns a list of the top 10 state,country based on the number of sightings"
 
-            resolver(storage::getTopSightings)
+            resolver { -> storage.getTopSightings() }
         }
 
         query("topCountrySightings") {
             description = "Returns a list of the top 10 countries based on the number of sightings"
 
-            resolver(storage::getTopCountrySightings)
+            resolver { -> storage.getTopCountrySightings() }
         }
 
         mutation("createUFOSighting") {
