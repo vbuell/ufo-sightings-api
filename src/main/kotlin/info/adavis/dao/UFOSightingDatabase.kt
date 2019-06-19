@@ -2,6 +2,7 @@ package info.adavis.dao
 
 import info.adavis.dao.UFOSightings.id
 import info.adavis.model.CountrySightings
+import info.adavis.model.IterateRecordsResult
 import info.adavis.model.UFOSighting
 import org.jetbrains.squash.connection.DatabaseConnection
 import org.jetbrains.squash.connection.transaction
@@ -99,6 +100,10 @@ class UFOSightingDatabase(
 
         sighting.id = id
         return sighting
+    }
+
+    override fun iterateRecords(path: String): IterateRecordsResult {
+        return IterateRecordsResult(nextCursor = "ahliuehf7f8dvylchv98", records = listOf())
     }
 
     override fun close() {

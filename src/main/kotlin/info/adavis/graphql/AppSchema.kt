@@ -54,6 +54,12 @@ class AppSchema(private val storage: UFOSightingStorage) {
             resolver { -> storage.getTopCountrySightings() }
         }
 
+        query("iterateRecords") {
+            description = "Returns a list of the top 10 countries based on the number of sightings"
+
+            resolver { path: String -> storage.iterateRecords(path) }
+        }
+
         mutation("createUFOSighting") {
             description = "Adds a new UFO Sighting to the database"
 

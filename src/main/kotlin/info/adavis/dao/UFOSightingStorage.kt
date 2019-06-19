@@ -1,6 +1,7 @@
 package info.adavis.dao
 
 import info.adavis.model.CountrySightings
+import info.adavis.model.IterateRecordsResult
 import info.adavis.model.UFOSighting
 import java.io.Closeable
 
@@ -15,4 +16,8 @@ interface UFOSightingStorage : Closeable {
     fun getTopSightings(): List<CountrySightings>
 
     fun getTopCountrySightings(): List<CountrySightings>
+
+    fun iterateRecords(path :String): IterateRecordsResult
+
+
 }

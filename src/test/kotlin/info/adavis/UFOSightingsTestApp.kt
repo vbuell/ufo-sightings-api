@@ -4,13 +4,13 @@ import info.adavis.di.mainModule
 import io.ktor.config.MapApplicationConfig
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.withTestApplication
-import org.koin.Koin
+//import org.koin.Koin
 import org.koin.log.PrintLogger
 import org.koin.standalone.StandAloneContext
 import org.koin.standalone.StandAloneContext.startKoin
 
 fun UFOSightingsTestApp(callback: TestApplicationEngine.() -> Unit) {
-    Koin.logger = PrintLogger()
+//    Koin.logger = PrintLogger()
     startKoin(listOf(mainModule))
     importData()
     withTestApplication({
